@@ -118,7 +118,7 @@ with tab3:
     st.subheader("Checkpoint Browser")
     st.markdown("View saved checkpoint files from the last workflow run.")
 
-    checkpoint_dir = Path("..") / "data" / "checkpoints"
+    checkpoint_dir = Path(__file__).resolve().parent.parent / "data" / "checkpoints"
     if checkpoint_dir.exists():
         files = list(checkpoint_dir.glob("checkpoint_*.json"))
         if files:

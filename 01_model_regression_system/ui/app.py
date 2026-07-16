@@ -23,7 +23,7 @@ tab1, tab2, tab3 = st.tabs(["Prompt Config", "Ground Truth Data", "Regression Si
 
 with tab1:
     st.subheader("Prompt Configuration")
-    prompt_path = Path("..") / "prompts" / "classifier_v1.yaml"
+    prompt_path = Path(__file__).resolve().parent.parent / "prompts" / "classifier_v1.yaml"
     if prompt_path.exists():
         import yaml
         raw = yaml.safe_load(prompt_path.read_text(encoding="utf-8"))
@@ -38,7 +38,7 @@ with tab1:
 
 with tab2:
     st.subheader("Ground Truth Test Items")
-    gt_path = Path("..") / "tests" / "ground_truth.json"
+    gt_path = Path(__file__).resolve().parent.parent / "tests" / "ground_truth.json"
     if gt_path.exists():
         items = load_ground_truth(gt_path)
         data = []
@@ -81,7 +81,7 @@ with tab3:
     st.subheader("Regression Simulator")
     st.markdown("Simulate model predictions and see regression detection in action.")
 
-    gt_path = Path("..") / "tests" / "ground_truth.json"
+    gt_path = Path(__file__).resolve().parent.parent / "tests" / "ground_truth.json"
     if gt_path.exists():
         items = load_ground_truth(gt_path)
 
